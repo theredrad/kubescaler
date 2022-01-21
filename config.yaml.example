@@ -1,0 +1,15 @@
+cloud-provider: "digitalocean"
+cloud-provider-token:
+cluster-name: ""
+node-pool-name: ""
+node-selector: "role=scalable"
+cluster-kube-config-master-url:
+cluster-kube-config-path:
+minimum-node-pool-size: 2
+maximum-node-pool-size: 4
+server-pod-label-name: "session"
+server-pod-label-value: "dedicated-server"
+buffer-slot-size: 4
+scale-loop-tick-sec: 1
+server-cpu-resource-request: 1000
+empty-node-expiration-sec: 120
