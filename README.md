@@ -27,3 +27,8 @@ The example config file exists as `config.yaml.exmaple` file. Also, you can set 
 * `scale-loop-tick-sec` : scale loop tick duration in seconds 
 * `server-cpu-resource-request` : dedicated server pod CPU resource request (in MilliValue)  
 * `empty-node-expiration-sec` : empty node expiration duration in seconds (delete node after this time if no pods scheduled)
+
+
+## TODOs
+* [ ] Add kubernetes deployment
+* [ ] Add health check
