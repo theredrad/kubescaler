@@ -24,5 +24,7 @@ func (pw *PodWatcher) Watch() {
 func (pw *PodWatcher) Stop() {
 	pw.w.Stop()
 	pw.wg.Wait()
-	close(pw.Events)
+	if pw.Events != nil {
+		close(pw.Events)
+	}
 }

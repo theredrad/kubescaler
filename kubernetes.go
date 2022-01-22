@@ -8,6 +8,7 @@ import (
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/clientcmd"
+	"k8s.io/apimachinery/pkg/watch"
 	"sort"
 )
 
@@ -88,6 +89,7 @@ func (k *K8S) NewPodWatcher(ctx context.Context, namespace, labelSelector string
 
 	return &PodWatcher{
 		w: w,
+		Events: make(chan watch.Event),
 	}, nil
 }
 
