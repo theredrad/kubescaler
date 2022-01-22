@@ -69,7 +69,7 @@ func (s *Scaler) Start() error {
 	}
 
 	go func() {
-		ticker := time.NewTicker(s.config.ScaleLoopDuration * time.Second)
+		ticker := time.NewTicker(s.config.ScaleLoopDuration)
 		defer ticker.Stop()
 
 		for {
