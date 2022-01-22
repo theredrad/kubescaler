@@ -60,6 +60,7 @@ func main() {
 		PodLabelValue:       viper.GetString(confPodLabelValue),
 		EmptyNodeExpiration: time.Duration(viper.GetInt(confEmptyNodeExpiration)) * time.Second,
 		BufferSlotSize:      viper.GetInt64(confSlotBufferSize),
+		ScaleLoopDuration:   time.Duration(viper.GetInt(confScaleLoopTickSec)) * time.Second,
 	})
 
 	err = scaler.Start()

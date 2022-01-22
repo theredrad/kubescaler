@@ -29,6 +29,8 @@ type Config struct {
 
 	BufferSlotSize int64
 
+	ScaleLoopDuration time.Duration
+
 	Logger Logger
 }
 
