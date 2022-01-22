@@ -49,7 +49,7 @@ func NewScaler(npm nodepoolmanager.Provider, k8s Kubernetes, config *Config) *Sc
 	}
 
 	if config.Logger == nil {
-		config.Logger = newDefaultLogger(nil, nil, nil)
+		config.Logger = NewDefaultLogger(nil, nil, nil)
 	}
 
 	// TODO: validate config

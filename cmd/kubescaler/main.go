@@ -61,6 +61,7 @@ func main() {
 		EmptyNodeExpiration: time.Duration(viper.GetInt(confEmptyNodeExpiration)) * time.Second,
 		BufferSlotSize:      viper.GetInt64(confSlotBufferSize),
 		ScaleLoopDuration:   time.Duration(viper.GetInt(confScaleLoopTickSec)) * time.Second,
+		Logger:              kubescaler.NewDefaultLogger(log.New(os.Stdout, "[INFO]: ", log.Ldate), log.New(os.Stdout, "[DEBUG]: ", log.Ldate), log.New(os.Stdout, "[ERROR]: ", log.Ldate)),
 	})
 
 	err = scaler.Start()
@@ -68,6 +69,7 @@ func main() {
 		panic(err)
 	}
 	defer scaler.Stop()
+	log.Printf("[INFO] scaler server started")
 
 	sigs := make(chan os.Signal, 1)
 	signal.Notify(sigs, os.Interrupt)

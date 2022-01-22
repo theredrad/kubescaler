@@ -20,7 +20,7 @@ type defaultLogger struct {
 	errorLogger *log.Logger
 }
 
-func newDefaultLogger(infoLogger *log.Logger, debugLogger *log.Logger, errorLogger *log.Logger) *defaultLogger {
+func NewDefaultLogger(infoLogger *log.Logger, debugLogger *log.Logger, errorLogger *log.Logger) *defaultLogger {
 	logger := &defaultLogger{
 		infoLogger:  infoLogger,
 		debugLogger: debugLogger,
