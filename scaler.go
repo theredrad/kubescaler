@@ -288,7 +288,7 @@ func (s *Scaler) deleteExtraNodes() error {
 			}
 		}
 	}
-	return s.npm.DeleteNodes(nil, deleteNodes)
+	return s.npm.DeleteNodes(context.Background(), deleteNodes)
 }
 
 func (s *Scaler) filterPods(pods []v1.Pod) []v1.Pod {
