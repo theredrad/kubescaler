@@ -78,8 +78,13 @@ func (p *Provider) ResizeNode(ctx context.Context, count int) error {
 
 func (p *Provider) DeleteNodes(ctx context.Context, IDs []string) error {
 	for _, ID := range IDs {
-		_, err := p.client.Kubernetes.DeleteNode(ctx, p.clusterID, p.nodePoolID, ID, &godo.KubernetesNodeDeleteRequest{})
-		return err
+		np, _, err := p.client.Kubernetes.GetNodePool(ctx, p.clusterID, p.nodePoolID)
+		for _, node := range np.Nodes {
+			if node.Name == ID {
+				_, err = p.client.Kubernetes.DeleteNode(ctx, p.clusterID, p.nodePoolID, node.ID, &godo.KubernetesNodeDeleteRequest{})
+				return err
+			}
+		}
 	}
 	return nil
 }
